@@ -1,3 +1,4 @@
+<!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="alurapic">
 
@@ -9,6 +10,8 @@
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/efeitos.css">
     <script src="js/lib/angular.min.js"></script>
+    <!-- importando o módulo ngAnimate -->
+    <script src="js/lib/angular-animate.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/controllers/fotos-controller.js"></script>
     <script src="js/directives/minhas-diretivas.js"></script>
@@ -23,17 +26,21 @@
         <div class="row">
             <div class="col-md-12">
                 <form>
-                    <input class="form-control" placeholder="filtrar pelo título da foto" ng-model="filtro">
+                    <input class="form-control" placeholder="filtrar pelo título da foto" ng-model="filtro" ng-model-options="{debounce: 500}">
                 </form>
             </div>
             <!-- fim col-md-12 -->
         </div>
         <!-- fim row -->
         <div class="row">
-            <meu-painel class="col-md-2 fade" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}">
+            <!-- adicionando a classe painel-animado -->
+            <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}">
                 <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
             </meu-painel>
         </div>
         <!-- fim row -->
     </div>
     <!-- fim container -->
+</body>
+
+</html>
