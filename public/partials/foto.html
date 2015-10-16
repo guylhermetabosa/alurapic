@@ -1,14 +1,12 @@
-<!-- public/partials/foto.html -->
 <div class="page-header text-center">
     <h1>{{foto.titulo}}</h1>
 </div>
-<!-- novidade! Aqui será exibida mensagens para o usuário -->
 <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
 <form novalidate name="formulario" class="row" ng-submit="submeter()">
     <div class="col-md-6">
         <div class="form-group">
             <label>Título</label>
-            <input name="titulo" class="form-control" ng-model="foto.titulo" required ng-maxlength="20">
+            <input name="titulo" class="form-control" ng-model="foto.titulo" required>
             <span ng-show="formulario.$submitted && formulario.titulo.$error.required" class="form-control alert-danger">
                 Título obrigatório
             </span>
@@ -35,7 +33,6 @@
         <hr>
     </div>
     <div class="col-md-6">
-        <minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}">
-        </minha-foto>
+        <minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></minha-foto>
     </div>
 </form>
